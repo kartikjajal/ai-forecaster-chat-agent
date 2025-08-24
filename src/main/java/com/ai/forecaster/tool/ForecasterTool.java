@@ -13,7 +13,8 @@ import java.time.ZoneId;
 @Slf4j
 public class ForecasterTool {
 
-    public static final String FORECAST_URL = "https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&daily=sunrise,sunset&timezone=IST";
+    public static final String SUN_FORECAST_URL = "https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&daily=sunrise,sunset&timezone=IST";
+    public static final String MARINE_FORECAST_URL = "https://marine-api.open-meteo.com/v1/marine?latitude=%s&longitude=%s&hourly=wave_height,wave_direction,wave_period&forecast_days=%s";
 
     @Tool("This tool is used to return latest date and time information.")
     public LocalDateTime getLocalDateTime(@P("""
@@ -32,7 +33,7 @@ public class ForecasterTool {
     public String getSunriseAndSunsetTime(@P("latitude of the city/country") String latitude,
                                           @P("longitude of the city/country") String longitude) {
         RestClient restClient = RestClient.builder()
-                .baseUrl(String.format(FORECAST_URL, latitude, longitude))
+                .baseUrl(String.format(SUN_FORECAST_URL, latitude, longitude))
                 .build();
         return restClient.get()
                 .retrieve()
@@ -48,7 +49,7 @@ public class ForecasterTool {
                                           @P("longitude of the city/country") String longitude,
                                     @P("forecast days, default is 7") int forecastDays) {
         RestClient restClient = RestClient.builder()
-                .baseUrl(String.format("https://marine-api.open-meteo.com/v1/marine?latitude=%s&longitude=%s&hourly=wave_height,wave_direction,wave_period&forecast_days=%s", latitude, longitude, forecastDays))
+                .baseUrl(String.format(MARINE_FORECAST_URL, latitude, longitude, forecastDays))
                 .build();
         return restClient.get()
                 .retrieve()

@@ -7,6 +7,7 @@ import org.springframework.test.context.TestPropertySource;
 @SpringBootTest
 @TestPropertySource(properties = {
         "AZURE_OPENAI_KEY=test-api-key",
+        "AZURE_OPENAI_ENDPOINT=https://your-custom-endpoint.openai.azure.com/",
         "langchain4j.openai.model=gpt-3.5-turbo"
 })
 class ForecasterAIApplicationTests {

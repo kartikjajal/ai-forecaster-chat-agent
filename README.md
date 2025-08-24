@@ -6,7 +6,7 @@ A Spring Boot application that integrates Azure OpenAI to provide an AI-powered 
 - Azure OpenAI resource (for AI-powered features)
 - You must have access to Azure OpenAI and obtain the endpoint URL and API key.
 
-# AI Sunrise, Sunset & Marine Forecaster API
+# AI Sunrise, Sunset & Marine Weather Forecaster API
 
 A Spring Boot application providing sunrise, sunset, and marine weather forecasting via a single endpoint.
 

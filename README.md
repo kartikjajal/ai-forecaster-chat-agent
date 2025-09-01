@@ -73,3 +73,10 @@ Run unit and integration tests:
 ```sh
 mvn test
 ```
+
+## Demo
+
+![First Chat Message](screenshot/1.jpg)
+![Marine Tide information for given city](screenshot/2.jpg)
+![Sunrise query for given city](screenshot/3.jpg)
+![Included sunrise and sunset information](screenshot/4.jpg)
